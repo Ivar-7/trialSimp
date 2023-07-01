@@ -1,21 +1,13 @@
-function duplicateEncode(word) {
-  // Count the number of occurrences of each character in the word
-  const charCount = {};
-  for (let i = 0; i < word.length; i++) {
-    const char = word[i].toLowerCase();
-    charCount[char] = (charCount[char] || 0) + 1;
-  }
+const arr = [7, 3, 7, 3, 7, 8, 3]
 
-  // Encode the string based on the character count
-  const result = [];
-  for (let i = 0; i < word.length; i++) {
-    const char = word[i].toLowerCase();
-    result.push(charCount[char] > 1 ? ")" : "(");
-  }
+function solution(A) {
+    let obj = {}
 
-  return result.join("");
+    for (let i = 0; i < A.length; i ++){
+        obj[A[i]] = (obj[A[i]] || 0) + 1
+    }
+    const result = Object.entries(obj).find(([key, value]) => value === 1);
+    console.log(result[0])
 }
 
-console.log(duplicateEncode("pomupomz"));
-console.log(duplicateEncode("Success"));
-// console.log("Success)");
+solution(arr)
